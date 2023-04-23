@@ -1,0 +1,21 @@
+<div id="form-container">
+    <h1 id="f-titulo"><%if(content){%>Edit Task<%}else{%>New Task<%}%></h1>
+    <form action="" id="form-new">
+        <div class="form-group">
+            <input type="text" id="_id" value="<%if(content){%><%=task.id%><%}%>">
+            <label for="f-title">Title of task:</label>
+            <input type="text" name="f-title" id="f-title" maxlength="100" placeholder="Title of my task" value="<%if(content){%><%=task.title%><%}%>">
+        </div>
+        <div class="form-group">
+            <label for="f-description">Task description:</label>
+            <textarea name="f-description" id="f-description" placeholder="This is the description of my task..." maxlength="500"><%if(content){%><%=task.description%><%}%></textarea>
+        </div>
+        <div class="form-group">
+            <label for="f-delete">Delete after (days):</label>
+            <input type="number" name="f-delete" id="f-delete" value="1">
+        </div>
+        <div class="form-group">
+            <button class="btn-submit" id="sub" >Save</button>
+        </div>
+    </form>
+</div>
