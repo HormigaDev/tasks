@@ -1,17 +1,35 @@
-<%- include("code/head", {title}) %>
+<%- include("code/head", {title, $t}) %>
 <body>
-    <div id="container">
-        <img src="assets/note2.avif" alt="image" id="bg">
-        <img src="assets/bg.jpg" alt="bg" id="background">
-        <img src="assets/thumbtack.png" alt="aa" id="thumbtack">
-        <a href="/new?edit=<%=id%>"><i class="fa fa-edit" id="plumilla"></i></a>
-        <a href="/delete?id=<%=id%>"><i class="fa fa-trash" id="eliminar"></i></a>
-        <h1 id="titulo-principal"><%=title%></h1>
-        <p id="parrafo-principal">
-            <%=task.description%>
-        </p>
-        <p id="fecha"><%=task.date%></p>
+    <script>
+        let api = 'http://localhost:2735/';
+        let reloadModal = false;
+        let $t = JSON.parse('<%-JSON.stringify($t)%>');
+        let activeComponent = '';
+        let pointerX = 0;
+        let pointerY = 0;
+        let selectDate = false;
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/task.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
+    <%- include("code/appbar", { title, $t }) %>
+    <%- include("code/modal") %>
+    <div id="task-task-container">
+        <a href="/<%=route%>"><i my-title="<%=$t.words.back%>" class="fa fa-arrow-left" id="task-back"></i></a>
+        <a href="/new?editing=<%=id%>"><i my-title="<%=$t.words.edit%>" class="fa fa-edit" id="edit-task"></i></a>
+        <a href="#"><i my-id="<%=id%>" my-title="<%=$t.words.delete%>" class="fa fa-trash" id="delete-task"></i></a>
+        <a href="#"><i my-id="<%=id%>" my-title="<%-task.status === 'ended' ? $t.messages.no_ended:$t.words.end%>" class="fa <%- task.status === 'ended' ? 'fa-check-double':'fa-check' %>" id="end-task"></i></a>
+        <h1 id="task-task-title"><%=task.title%></h1>
+        <div id="task-description-container">
+            
+            <p class="task-paragraph"><%=task.description%></p>
+        </div>
+        <div id="date-task-element">
+            <span><%=task.date.split("-").join("/")%></span>
+            <i class="fa fa-calendar"></i>
+        </div>
     </div>
+    <script src="scripts/appbar.js"></script>
     <script src="scripts/scripts.js"></script>
+    <script src="scripts/task.js"></script>
 </body>
 </html>

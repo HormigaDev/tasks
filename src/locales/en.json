@@ -1,0 +1,108 @@
+{
+  "lang": "en",
+  "words": {
+    "urgent": "Imediately",
+    "high": "High",
+    "normal": "Normal",
+    "low": "Low",
+    "ancient": "Ancient",
+    "recent": "Recent",
+    "all": "All",
+    "priority": "Priority",
+    "order_by": "Order by",
+    "show_results": "Show results",
+    "status": "Status",
+    "created": "Created",
+    "ended": "Ended",
+    "tasks": "Tasks",
+    "of": "of",
+    "edit": "Edit",
+    "delete": "Delete",
+    "end": "End",
+    "back": "Back"
+  },
+  "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  },
+  "days": {
+    "sunday": "Sunday",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  },
+  "buttons": {
+    "save": "Save"
+  },
+  "menu": {
+    "tasks": "Tasks",
+    "configurations": "Configurations",
+    "new_task": "New Task",
+    "search_task": "Search Task",
+    "calendar": "Calendar"
+  },
+  "titles": {
+    "configurations": "Configurations",
+    "new_task": "New Task",
+    "edit_task": "Edit Task",
+    "search_task": "Search Task",
+    "task": "Task",
+    "tasks": "Tasks",
+    "calendar": "Calendar",
+    "error": "Oops! Something went wrong...",
+    "all_set": "All set!"
+  },
+  "messages": {
+    "missingFields": "Please fill in all fields.",
+    "dontSaveTaskEnded": "You can`t save a task that has already ended.",
+    "dontDeleteTaskEnded": "You can`t delete a task that has already ended.",
+    "dontDeleteTask": "Error deleting task. Please try again later.",
+    "taskEndedSucess": "Task ended successfully!",
+    "dontEndTask": "Error ending task. Please try again later.",
+    "no_ended": "Change status to created"
+  },
+  "pages": {
+    "tasks": {
+      "title": "Tasks",
+      "nonetasks": "No tasks to display",
+      "search": "Capture a butterfly..."
+    },
+    "search_task": {
+      "inputPlaceholder": "Search tasks..."
+    },
+    "new_task": {
+      "edit": "Edit Task",
+      "new": "New Task",
+      "titleoftask": "Task Title",
+      "taskdescription": "Task Description",
+      "deleteafter": "Delete after (days)",
+      "titleofmytask": "My Task Title",
+      "thisdescriptionofmytask": "This is my task description",
+      "date": "Schedule for"
+    },
+    "config": {
+      "title": "Configurations",
+      "language": "Language",
+      "english": "English",
+      "spanish": "Spanish",
+      "portuguese": "Portuguese",
+      "configs_updateds": "All set!",
+      "configs_updated_sucess": "Configurations updated successfully!",
+      "no_updated_configs": "No settings updated, as none were altered.",
+      "descriptionLimit": "Description character limit"
+    }
+  }
+}

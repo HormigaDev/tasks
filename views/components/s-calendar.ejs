@@ -1,0 +1,22 @@
+<% if(selectDate) {%>
+  <script>
+    selectDate = true;
+  </script>  
+<%}%>
+
+<div id="ss-calendar">
+  <div id="prevmonth"><i class="fa fa-angle-left"></i></div>
+  <div id="nextmonth"><i class="fa fa-angle-right"></i></div>
+  <div id="monthname"></div>
+  <div id="weekgrid">
+    <div class="weekday weekday-weekend"><%=$t.days.sunday%></div>
+    <div class="weekday"><%=$t.days.monday%></div>
+    <div class="weekday"><%=$t.days.tuesday%></div>
+    <div class="weekday"><%=$t.days.wednesday%></div>
+    <div class="weekday"><%=$t.days.thursday%></div>
+    <div class="weekday"><%=$t.days.friday%></div>
+    <div class="weekday weekday-weekend"><%=$t.days.saturday%></div>
+  </div>
+  <div id="calendar">
+  </div>
+</div>

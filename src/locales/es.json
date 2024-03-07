@@ -1,0 +1,108 @@
+{
+  "lang": "es",
+  "words": {
+    "urgent": "Urgente",
+    "high": "Alta",
+    "normal": "Normal",
+    "low": "Baja",
+    "all": "Todas",
+    "priority": "Prioridad",
+    "order_by": "Ordenar por",
+    "ancient": "Antiguas",
+    "recent": "Recientes",
+    "show_results": "Mostrar resultados",
+    "status": "Estado",
+    "created": "Creada",
+    "ended": "Finalizada",
+    "tasks": "Tareas",
+    "of": "de",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "end": "Finalizar",
+    "back": "Volver"
+  },
+  "months": {
+    "january": "Enero",
+    "february": "Febrero",
+    "march": "Marzo",
+    "april": "Abril",
+    "may": "Mayo",
+    "june": "Junio",
+    "july": "Julio",
+    "august": "Agosto",
+    "september": "Septiembre",
+    "october": "Octubre",
+    "november": "Noviembre",
+    "december": "Diciembre"
+  },
+  "days": {
+    "sunday": "Domingo",
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado"
+  },
+  "buttons": {
+    "save": "Guardar"
+  },
+  "menu": {
+    "tasks": "Tareas",
+    "configurations": "Configuraciones",
+    "new_task": "Nueva tarea",
+    "search_task": "Buscar tarea",
+    "calendar": "Calendario"
+  },
+  "titles": {
+    "configurations": "Configuraciones",
+    "new_task": "Nueva tarea",
+    "edit_task": "Editar tarea",
+    "search_task": "Buscar tarea",
+    "task": "Tarea",
+    "tasks": "Tareas",
+    "calendar": "Calendario",
+    "error": "Ups! Algo salió mal...",
+    "all_set": "¡Todo listo!"
+  },
+  "messages": {
+    "missingFields": "Por favor, complete todos los campos",
+    "dontSaveTaskEnded": "No se puede guardar una tarea que ya ha sido finalizada",
+    "dontDeleteTaskEnded": "No se puede eliminar una tarea que ya ha sido finalizada",
+    "dontDeleteTask": "Error al eliminar la tarea, por favor intente más tarde",
+    "taskEndedSucess": "¡Tarea finalizada con éxito!",
+    "dontEndTask": "Error al finalizar la tarea, por favor intente más tarde",
+    "no_ended": "Cambiar para no finalizada"
+  },
+  "pages": {
+    "tasks": {
+      "title": "Tareas",
+      "nonetasks": "No hay tareas para mostrar",
+      "search": "Capturar una mariposa..."
+    },
+    "search_task": {
+      "inputPlaceholder": "Buscar tareas..."
+    },
+    "new_task": {
+      "edit": "Editar tarea",
+      "new": "Nueva tarea",
+      "titleoftask": "Título de la tarea",
+      "taskdescription": "Descripción de la tarea",
+      "deleteafter": "Eliminar pasados (días)",
+      "titleofmytask": "Título de mi tarea",
+      "thisdescriptionofmytask": "Esta es la descripción de mi tarea",
+      "date": "Agendar para"
+    },
+    "config": {
+      "title": "Configuraciones",
+      "language": "Idioma",
+      "english": "Inglés",
+      "spanish": "Español",
+      "portuguese": "Portugués",
+      "configs_updateds": "¡Todo listo!",
+      "configs_updated_sucess": "Las configuraciones fueron actualizadas con éxito",
+      "no_updated_configs": "Ninguna configuración actualizada, pues ninguna fue modificada",
+      "descriptionLimit": "Límite de caracteres en la descripción"
+    }
+  }
+}

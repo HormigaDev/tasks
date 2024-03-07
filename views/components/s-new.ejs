@@ -1,21 +1,62 @@
-<div id="form-container">
-    <h1 id="f-titulo"><%if(content){%>Edit Task<%}else{%>New Task<%}%></h1>
-    <form action="" id="form-new">
-        <div class="form-group">
-            <input type="text" id="_id" value="<%if(content){%><%=task.id%><%}%>">
-            <label for="f-title">Title of task:</label>
-            <input type="text" name="f-title" id="f-title" maxlength="100" placeholder="Title of my task" value="<%if(content){%><%=task.title%><%}%>">
-        </div>
-        <div class="form-group">
-            <label for="f-description">Task description:</label>
-            <textarea name="f-description" id="f-description" placeholder="This is the description of my task..." maxlength="500"><%if(content){%><%=task.description%><%}%></textarea>
-        </div>
-        <div class="form-group">
-            <label for="f-delete">Delete after (days):</label>
-            <input type="number" name="f-delete" id="f-delete" value="1">
-        </div>
-        <div class="form-group">
-            <button class="btn-submit" id="sub" >Save</button>
-        </div>
-    </form>
-</div>
+<%if (!selectDate) {%>
+    <div id="form-container">
+        <h1 id="f-titulo"><%if(editing){%> <%=$t.pages.new_task.edit%> <%}else{%> <%=$t.pages.new_task.new%> <%}%></h1>
+        <form action="" id="form-new">
+            <div class="form-group-row">
+                <div class="form-group-section">
+                    <input type="text" id="_id" value="<%if(editing){%><%=task.id%><%}%>">
+                    <label for="f-title"><%=$t.pages.new_task.titleoftask%> *</label>
+                    <input type="text" name="f-title" id="f-title" maxlength="100" placeholder="<%=$t.pages.new_task.titleofmytask%>" value="<%if(task){%><%=task.title%><%}%>">
+                </div>
+                <div class="form-group-section">
+                    <label for="f-priority"><%=$t.words.priority%> *</label>
+                    <select name="f-priority" id="f-priority">
+                        <%if(task && task?.priority == 'urgent'){%>
+                            <option value="urgent" selected><%=$t.words.urgent%></option>
+                        <%} else{%>
+                            <option value="urgent"><%=$t.words.urgent%></option>    
+                        <%}%>
+
+                        <%if(task && task?.priority == 'high'){%>
+                            <option value="high" selected><%=$t.words.high%></option>
+                        <%} else{%>
+                            <option value="high"><%=$t.words.high%></option>    
+                        <%}%>
+
+                        <%if(task && task?.priority == 'normal'){%>
+                            <option value="normal" selected><%=$t.words.normal%></option>
+                        <%} else{%>
+                            <option value="normal"><%=$t.words.normal%></option>    
+                        <%}%>
+
+                        <%if(task && task?.priority == 'low'){%>
+                            <option value="low" selected><%=$t.words.low%></option>
+                        <%} else{%>
+                            <option value="low"><%=$t.words.low%></option>    
+                        <%}%>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="f-description"><%=$t.pages.new_task.taskdescription%> *</label>
+                <textarea name="f-description" id="f-description" placeholder="<%=$t.pages.new_task.thisdescriptionofmytask%>..." maxlength="<%=configs?.descriptionLimit??2500%>"><%if(task){%><%=task.description%><%}%></textarea>
+            </div>
+            <div class="form-group-row">
+                <div>
+                    <div>
+                        <label for="f-delete"><%=$t.pages.new_task.date%>:</label>
+                    </div>
+                    <div class="form-divisor-row">
+                        <input type="text" name="f-date" id="f-date" readonly value="<%if(task){%><%=task.formatedDate%><%}%>">
+                        <button class="btn" id="get-date"><i class="fa fa-calendar"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn-submit" id="sub" ><%=$t.buttons.save%></button>
+            </div>
+        </form>
+    </div>
+    <%} else {%>
+        <%- include("s-calendar", { selectDate }) %>
+    <%}%>

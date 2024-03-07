@@ -1,0 +1,29 @@
+
+<link rel="stylesheet" type="text/css" href="css/config.css">
+<div id="main">
+  <h1 id="m-title"><%=$t.pages.config.title%></h1>
+
+  <div id="configs-container">
+    <div class="config-section">
+      <div class="config-group">
+        <div class="config-title"><%=$t.pages.config.language%></div>
+        <select name="language" class="configuration" id="language-select" defaultLang="<%=$t.lang%>">
+          <option value="en"><%=$t.pages.config.english%></option>
+          <option value="es"><%=$t.pages.config.spanish%></option>
+          <option value="pt"><%=$t.pages.config.portuguese%></option>
+        </select>
+      </div>
+    </div>
+    <div class="config-section">
+      <div class="config-group">
+        <div class="config-title"><%=$t.pages.config.descriptionLimit%></div>
+        <input type="number" name="descriptionLimit" class="configuration" id="descriptionLimit" value="<%=configs.descriptionLimit%>">
+      </div>
+    </div>
+    
+  </div>
+  <div class="config-save-section">
+    <button id="save-config" class="save-button btn"><%=$t.buttons.save%></button>
+  </div>
+
+</div>

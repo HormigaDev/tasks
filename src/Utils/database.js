@@ -7,23 +7,25 @@ let dir = path.join(d[0], d[1], d[2], 'AppData', 'Roaming', '.task');
 if(!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
 }
-let file = path.join(dir, 'db.tsk');
+
 
 class DB {
-    constructor(){
+    constructor(filename){
+        this.filename = filename
+        this.file = path.join(dir, filename+'.tsk');
         this.create();
     }
     create(){
-        if(!fs.existsSync(file)){
-            fs.writeFileSync(file, this.cipher({}), 'utf8');
+        if(!fs.existsSync(this.file)){
+            fs.writeFileSync(this.file, this.cipher({}), 'utf8');
         }
     }
     read(){
-        let data = fs.readFileSync(file, 'utf8');
+        let data = fs.readFileSync(this.file, 'utf8');
         return data;
     }
     write(data){
-        fs.writeFileSync(file, this.cipher(data), 'utf8')
+        fs.writeFileSync(this.file, this.cipher(data), 'utf8')
     }
     cipher(data){
         return jwt.sign({data:JSON.stringify(data)}, 'secret')
@@ -40,10 +42,11 @@ class DB {
         let raw = this.read();
         let data = this.parse(raw);
         if(!data) return;
+        if(!data[key]) return undefined;
         return data[key];
     }
-    set(key, value){
-        if(!key || !value) return;
+    set(key, value=null){
+        if(!key) return;
         let raw = this.read();
         let data = this.parse(raw);
         if(!data) return;
@@ -52,4 +55,4 @@ class DB {
     }
 }
 
-module.exports = new DB();
+module.exports = DB;

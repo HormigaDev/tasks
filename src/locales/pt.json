@@ -1,0 +1,108 @@
+{
+  "lang": "pt",
+  "words": {
+    "urgent": "Imediata",
+    "high": "Alta",
+    "normal": "Normal",
+    "low": "Baixa",
+    "ancient": "Antigas",
+    "recent": "Recentes",
+    "all": "Todas",
+    "priority": "Prioridade",
+    "order_by": "Ordenar por",
+    "show_results": "Mostrar Resultados",
+    "status": "Status",
+    "created": "Criada",
+    "ended": "Finalizada",
+    "tasks": "Tarefas",
+    "of": "de",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "end": "Finalizar",
+    "back": "Voltar"
+  },
+  "months": {
+    "january": "Janeiro",
+    "february": "Fevereiro",
+    "march": "Março",
+    "april": "Abril",
+    "may": "Maio",
+    "june": "Junho",
+    "july": "Julho",
+    "august": "Agosto",
+    "september": "Setembro",
+    "october": "Outubro",
+    "november": "Novembro",
+    "december": "Dezembro"
+  },
+  "days": {
+    "sunday": "Domingo",
+    "monday": "Segunda-feira",
+    "tuesday": "Terça-feira",
+    "wednesday": "Quarta-feira",
+    "thursday": "Quinta-feira",
+    "friday": "Sexta-feira",
+    "saturday": "Sábado"
+  },
+  "buttons": {
+    "save": "Salvar"
+  },
+  "menu": {
+    "tasks": "Tarefas",
+    "configurations": "Configurações",
+    "new_task": "Nova Tarefa",
+    "search_task": "Pesquisar Tarefa",
+    "calendar": "Agenda"
+  },
+  "titles": {
+    "configurations": "Configurações",
+    "new_task": "Nova Tarefa",
+    "edit_task": "Editar Tarefa",
+    "search_task": "Pesquisar Tarefa",
+    "task": "Tarefa",
+    "tasks": "Tarefas",
+    "calendar": "Agenda",
+    "error": "Oops! Algo deu errado...",
+    "all_set": "Tudo pronto!"
+  },
+  "messages": {
+    "missingFields": "Por gentileza, preencha todos os campos obrigatórios",
+    "dontSaveTaskEnded": "Não é possível salvar uma tarefa que já foi finalizada",
+    "dontDeleteTaskEnded": "Não é possível excluir uma tarefa que já foi finalizada",
+    "dontDeleteTask": "Erro ao excluir tarefa, tente novamente mais tarde",
+    "taskEndedSucess": "Tarefa finalizada com sucesso!",
+    "dontEndTask": "Erro ao finalizar a tarefa. Tente novamente mais tarde",
+    "no_ended": "Trocar para não finalizada"
+  },
+  "pages": {
+    "tasks": {
+      "title": "Tarefas",
+      "nonetasks": "Nenhuma tarefa para mostrar",
+      "search": "Capturar uma borboleta..."
+    },
+    "search_task": {
+      "inputPlaceholder": "Pesquisar tarefas..."
+    },
+    "new_task": {
+      "edit": "Editar Tarefa",
+      "new": "Nova Tarefa",
+      "titleoftask": "Título da Tarefa",
+      "taskdescription": "Descrição da Tarefa",
+      "deleteafter": "Excluir passados (dias)",
+      "titleofmytask": "Título da Minha Tarefa",
+      "thisdescriptionofmytask": "Esta é a descrição da minha tarefa",
+      "date": "Agendar para"
+    },
+    "config": {
+      "title": "Configurações",
+      "language": "Idioma",
+      "english": "Inglês",
+      "spanish": "Espanhol",
+      "portuguese": "Português",
+      "configs_updateds": "Tudo pronto!",
+      "configs_updated_sucess": "Configurações atualizadas com sucesso!",
+      "no_updated_configs": "Nenhuma configuração foi atualizada, pois nenhuma foi alterada",
+      "descriptionLimit": "Limite de caracteres para descrição"
+    }
+  }
+}

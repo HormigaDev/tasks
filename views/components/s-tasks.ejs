@@ -1,17 +1,51 @@
 
 <div id="main">
-    <h1 id="m-title">Tasks</h1>
-    <%if(data.tasks.length<1) {%>
-    <h2 id="nada">Nothing to show here.</h2>
-    <%}%>
+    <h1 id="m-title"><%=$t.pages.tasks.title%></h1>
+    <div id="filter-bar">
+        <div class="filter-group">
+            <label for="priority"><%=$t.words.priority%></label>
+            <select name="priority" id="tasks-priority" class="filterbar-select">
+                <option value="all" selected><%=$t.words.all%></option>
+                <option value="urgent"><%=$t.words.urgent%></option>
+                <option value="high"><%=$t.words.high%></option>
+                <option value="normal"><%=$t.words.normal%></option>
+                <option value="low"><%=$t.words.low%></option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="order_by"><%=$t.words.order_by%></label>
+            <select name="order_by" id="tasks-order-by" class="filterbar-select">
+                <option value="ancient"><%=$t.words.ancient%></option>
+                <option value="recent"><%=$t.words.recent%></option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="limit"><%=$t.words.status%></label>
+            <select name="limit" id="tasks-status" class="filterbar-select">
+                <option value="created" selected><%=$t.words.created%></option>
+                <option value="ended"><%=$t.words.ended%></option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="limit"><%=$t.words.show_results%></label>
+            <select name="limit" id="tasks-limit" class="filterbar-select">
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        <div class="filter-group-search">
+            <button class="btn" id="tasks-search-task"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
     <div id="tasks">
-        <%for (let task of data.tasks){%>
-            <a href="/task?id=<%=task.id%>" class="task">
-                <img src="assets/nota.png" alt="image" class="task-image">
-                <img class="task-icon" src="assets/thumbtack.png"></img>
-                <h3 class="task-title"><%=task.title%></h3>
-                <p class="task-date"><%=task.date%></p>
-            </a>
-        <%}%>
+    </div>
+    <div class="pagination-container">
+        <div id="pagination-numbers"></div>
+    </div>
+    <div id="input-search-container">
+        <input type="text" id="input-search" placeholder="<%=$t.pages.tasks.search%>">
+        <span id="close-input">&times;</span>
     </div>
 </div>

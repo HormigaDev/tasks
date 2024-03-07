@@ -1,0 +1,47 @@
+.app-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.app-modal {
+  background: #333;
+  width: 420px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #fafafa;
+  color: #fafafa;
+}
+
+.app-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-modal-divider {
+  margin: 15px 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.app-modal-body {
+  margin-bottom: 20px;
+}
+
+.app-modal-footer {
+  text-align: right;
+}
+
+.app-modal-close {
+  cursor: pointer;
+  font-size: 20px;
+  color: #fafafa;
+}

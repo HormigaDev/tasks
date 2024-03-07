@@ -1,0 +1,70 @@
+#task-task-container {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: #b39965;
+    background: #333;
+    height: 100vh;
+    width: 100vw;
+}
+#edit-task, #delete-task, #end-task, #task-back {
+  position: absolute;
+  left: 12px;
+  font-size: 44px;
+  text-decoration: none;
+  color: #b39965;
+  transition: all 0.2s ease;
+}
+#edit-task:hover, #delete-task:hover, #end-task:hover, #task-back:hover{
+  color: #8d723b;
+}
+#task-back {
+  top: 24px;
+}
+#edit-task {
+  top: 106px;
+}
+#end-task {
+  top: 158px;
+}
+#delete-task {
+  bottom: 52px;
+}
+#task-task-title {
+    font-size: 36px;
+    margin-bottom: 24px;
+}
+#task-description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    padding: 4px 180px;
+    overflow: auto;
+}
+.task-paragraph {
+    font-size: 18px;
+    margin-bottom: 8px;
+    width: 100%;
+    word-break: break-word;
+    text-align: left;
+    border-bottom: 1px solid #b39965;
+    white-space: pre-line; /* Mantiene los saltos de línea */
+    position: relative;
+    font-family: sans-serif;
+    padding-bottom: 24px;
+    user-select: text;
+}
+.task-paragraph::selection {
+  background: #b39965;
+  color: #fafafa;
+}
+#date-task-element {
+  position: absolute;
+  right: 24px;
+  bottom: 36px;
+  font-size: 16px;
+}

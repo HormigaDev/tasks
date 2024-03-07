@@ -1,13 +1,13 @@
 
 <div id="main">
-    <h1 id="m-title"><%if(component=='s-search'){%>Search<%}%> Tasks</h1>
+    <h1 id="m-title"><%=$t.titles.search_task%></h1>
     <%if(component=='s-search'){%>
         <div id="search-group">
-            <input type="text" id="search-input" placeholder="Search a task" autofocus>
+            <input type="text" id="search-input" placeholder="<%=$t.pages.search_task.inputPlaceholder%>" autofocus>
         </div>
     <%}%>
     <%if(data.tasks.length<1) {%>
-    <h2 id="nada">Nothing to show here.</h2>
+    <h2 id="nada"><%=$t.pages.tasks.nonetasks%></h2>
     <%}%>
     <div id="search-tasks">
         <%for (let task of data.tasks){%>

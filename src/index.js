@@ -1,8 +1,12 @@
-const { app, BrowserWindow } = require('electron');
+process.env.NODE_ENV = 'production';
+require('./prototypes'); //importa los prototipos de las clases
+
+const { app, BrowserWindow, globalShortcut } = require('electron');
 const path = require('path');
 const fs = require('fs');
 let d = __dirname.split('\\');
 let dir = path.join(d[0],d[1],d[2]);
+const server = require('./server');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 // eslint-disable-next-line global-require
@@ -14,16 +18,46 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1200,
-    height: 720
+    height: 720,
+    frame: false
   });
-  //evit the load menu
+    //evit the load menu
   mainWindow.setMenu(null);
 
   // and load the index.html of the app.
   mainWindow.loadURL('http://localhost:2735/tasks');
-
+  
+  // agregar el atajo Ctrl + R para recargar la página
+  if(process.env.NODE_ENV === 'development'){
+    const shortcut = globalShortcut.register('CommandOrControl+R', () => {
+      mainWindow.reload();
+    });
+    globalShortcut.register('CommandOrControl+Alt+D',() => {
+      mainWindow.webContents.openDevTools();
+    });
+  
+    if (!shortcut) {
+      console.log('Registration failed');
+    }
+  }
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
+
+
+  server.post('/minimize', async (req, res) => {
+    mainWindow.minimize();
+    res.json({success: true});
+  });
+  server.post('/maximize', async (req, res) => {
+    if(mainWindow.isMaximized()) mainWindow.unmaximize();
+    else mainWindow.maximize();
+    res.json({success: true});
+  });
+  server.post('/close', async (req, res) => {
+    app.quit();
+    res.json({success: true});
+  });
+
 };
 
 app.on('ready', createWindow);
@@ -45,7 +79,8 @@ app.on('activate', () => {
   }
 });
 
-const server = require('./server');
+
+
 const port = 2735;
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
