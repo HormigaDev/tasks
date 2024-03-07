@@ -16,16 +16,15 @@ module.exports = (app) => {
 
     // Middleware para configurar el lenguaje
     async function setLanguage(req, res, next){
-        let language = await configs.get('language');
-        if(!language) language = 'es';
-        req.lang = lang[language];
         req.configs = {}
-        let confiurations = await configs.get('configurations');
-        if(confiurations){
-            for (let conf of confiurations){
-                req.configs[conf.name] = conf.value;
+        let configurations = await configs.get('configurations');
+        if(configurations){
+            for (let config of configurations){
+                req.configs[config.name] = config.value;
             }
         }
+        if(!req.configs.language) req.configs.language = 'es';
+        req.lang = lang[req.configs.language];
         next();
     }
 

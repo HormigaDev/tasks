@@ -1,9 +1,6 @@
 let saveConfigButton = document.getElementById('save-config');
 
 let language = document.getElementById('language-select')??null;
-if(language !== null){
-  language.value = language?.getAttribute('defaultLang');
-}
 document.querySelectorAll('.configuration').forEach((config) => {
   //si es select se le asigna un evento change
   if(!config) return
