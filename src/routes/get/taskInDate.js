@@ -1,7 +1,7 @@
 module.exports = (app, { db }) => {
   app.get('/tasks-in-date', async (req, res) => {
       let { date, all } = req.query;
-      let tasks = (await db.get('tasks')).filter(t => {
+      let tasks = (await db.get('tasks')??[]).filter(t => {
         let [day, month, year] = t.date.split('-');
         if(date.split("-")[0].length == 4 ? `${year}-${month}-${day}` : t.date === date){
           return true;

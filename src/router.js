@@ -19,12 +19,12 @@ module.exports = (app) => {
         req.configs = {}
         let configurations = await configs.get('configurations');
         if(configurations){
-            for (let config of configurations){
-                req.configs[config.name] = config.value;
+            for (let config in configurations){
+                req.configs[config] = configurations[config];
             }
         }
         if(!req.configs.language) req.configs.language = 'es';
-        req.lang = lang[req.configs.language];
+        req.lang = lang[req.configs.language??'es'];
         next();
     }
 

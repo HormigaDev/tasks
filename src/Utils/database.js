@@ -37,12 +37,15 @@ class DB {
             return false;
         }
     }
-    async get(key){
+    async get(key, defaultValue){
         if(!key) return;
         let raw = this.read();
         let data = this.parse(raw);
         if(!data) return;
-        if(!data[key]) return undefined;
+        if(!data[key]) {
+            this.set(key, defaultValue);
+            return defaultValue;
+        }
         return data[key];
     }
     set(key, value=null){

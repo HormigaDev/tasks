@@ -1,26 +1,21 @@
+let configurations = {};
 let saveConfigButton = document.getElementById('save-config');
 
-let language = document.getElementById('language-select')??null;
-document.querySelectorAll('.configuration').forEach((config) => {
-  //si es select se le asigna un evento change
-  if(!config) return
-  if(config.tagName == "SELECT"){
-    config.addEventListener('change', (e) => {
-      configurations.push({
-        name: config.getAttribute('name'),
-        value: config.value
-      })
-    })
-  }
-  // si es input se le asigna un evento input
-  else if(config.tagName == "INPUT"){
-    config.addEventListener('input', (e) => {
-      configurations.push({
-        name: config.getAttribute('name'),
-        value: config.getAttribute('type') === 'number' ? +config.value : config.value
-      })
-    })
-  }
+let selects = ['language-select'];
+let inputs = ['descriptionLimit'];
+
+selects.forEach(id => {
+  let select = document.getElementById(id);
+  select.addEventListener('change', () => {
+    configurations[select.getAttribute('name')] = select.value;
+  })
+});
+
+inputs.forEach(id => {
+  let input = document.getElementById(id);
+  input.addEventListener('input', () => {
+    configurations[input.getAttribute('name')] = input.value;
+  });
 });
 
 saveConfigButton?.addEventListener('click', async (e) => {

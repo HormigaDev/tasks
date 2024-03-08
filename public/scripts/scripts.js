@@ -65,7 +65,6 @@ let description = document.getElementById('f-description');
 let priority = document.getElementById('f-priority');
 let date = document.getElementById('f-date');
 let submit = document.getElementById('sub');
-let configurations = [];
 
 if(submit != null){
 
