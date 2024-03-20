@@ -9,6 +9,6 @@ module.exports= (app, { db }) => {
     });
     // let regLinesBreak = /[\r\n]/g;
     // task.splittedDescription = task.description.split(regLinesBreak);
-    res.render('task', {title: "task" ,task,id, $t: req.lang, route});
+    res.dispatchRender('task', {title: "task" ,task,id, route});
   });
 }

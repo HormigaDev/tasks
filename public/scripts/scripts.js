@@ -305,3 +305,14 @@ if(sideContainerClose && sideContainer){
         sideContainer.style.right = '-30vw';
     });
 }
+
+let menuSections = document.querySelectorAll('.menu-section');
+menuSections.forEach(section => {
+    if(!configs.showMenuTitles) return;
+    section.addEventListener('mouseover', () => {
+        manageTooltip(section, true);
+    });
+    section.addEventListener('mouseout', () => {
+        manageTooltip(section, false);
+    });
+});

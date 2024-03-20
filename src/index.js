@@ -1,4 +1,4 @@
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = 'production';
 require('./prototypes'); //importa los prototipos de las clases
 
 const { app, BrowserWindow, globalShortcut } = require('electron');
@@ -25,7 +25,7 @@ const createWindow = () => {
   mainWindow.setMenu(null);
 
   // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:2735/tasks');
+  mainWindow.loadURL('http://localhost:2735/calendar');
   
   // agregar el atajo Ctrl + R para recargar la página
   if(process.env.NODE_ENV === 'development'){

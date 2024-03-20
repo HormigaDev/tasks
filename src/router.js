@@ -1,7 +1,8 @@
 const reducer = require('./Utils/reducer');
-const DB = require('./Utils/database');
+const { DB, EncryptedLocalListDB } = require('./Utils/database');
 const db = new DB('db');
 const configs = new DB('config');
+const affairs = new EncryptedLocalListDB('affairs');
 const generateID = require('./Utils/generateID');
 const date = require('./Utils/date');
 const lang = {
@@ -25,6 +26,21 @@ module.exports = (app) => {
         }
         if(!req.configs.language) req.configs.language = 'es';
         req.lang = lang[req.configs.language??'es'];
+
+        res.dispatch = async (json, status=200) => {
+            json.$t = req.lang;
+            json.configs = req.configs;
+
+            return res.status(status).json(json);
+        }
+        res.dispatchRender = function(template, data, status=200){
+            data.$t = req.lang;
+            data.configs = req.configs;
+            data.configurations = req.configs;
+
+            return res.status(status).render(template, data);
+        }
+
         next();
     }
 
@@ -36,7 +52,7 @@ module.exports = (app) => {
         let routes = fs.readdirSync(path.join(routesDir, method)).filter(file => file.endsWith('.js'));
         for (let route of routes){
             route = require(path.join(routesDir, method, route));
-            route(app, { db, configs, lang, date, reducer, generateID})
+            route(app, { db, configs, lang, date, reducer, generateID, affairs })
         }
     });
 }

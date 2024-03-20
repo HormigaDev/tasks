@@ -1,6 +1,6 @@
 module.exports = (app) => {
   app.get('/calendar', (req, res) => {
-    res.render('template', {
+    res.dispatchRender('template', {
       title: "calendar",
       component: 's-calendar',
       data: {},

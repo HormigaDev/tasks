@@ -16,6 +16,6 @@ module.exports = (app, { db }) => {
       }
     }
     let selectDate = await db.get('selectDate');
-    res.render('template', {title: editing ? "edit_task" : "new_task", component:'s-new' ,task, selectDate, data: {}, $t: req.lang, editing, configs: req.configs});
+    res.dispatchRender('template', {title: editing ? "edit_task" : "new_task", component:'s-new' ,task, selectDate, data: {}, editing});
   });
 }

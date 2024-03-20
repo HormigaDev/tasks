@@ -1,0 +1,63 @@
+#modal-affairs {
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  background-color: #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  padding-top: 48px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+#modal-affair-container {
+  max-width: 600px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+textarea {
+  height: 250px;
+}
+
+input[type="text"]:focus-visible,
+input[type="tel"]:focus-visible,
+input[type="number"]:focus-visible,
+textarea:focus-visible {
+  outline: 1px solid #b39965;
+  box-shadow: 0 0 8px #b39965;
+}
+hr {
+  margin: 20px auto;
+  border: 1px solid #b39965;
+  width: 80%;
+}
+
+.form-group-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 18px;
+}

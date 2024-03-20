@@ -12,6 +12,6 @@ module.exports = (app, { reducer, db, configs }) => {
         tasks.push(task);
     }
     tasks = ts.filter(task => task.after > Date.now());
-    res.render('template', {title: "tasks", component:'s-tasks' ,data: {tasks: tasks }, $t: req.lang});
+    res.dispatchRender('template', {title: "tasks", component:'s-tasks' ,data: {tasks: tasks }});
   });
 }

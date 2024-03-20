@@ -2,7 +2,8 @@ let configurations = {};
 let saveConfigButton = document.getElementById('save-config');
 
 let selects = ['language-select'];
-let inputs = ['descriptionLimit'];
+let inputs = ['descriptionLimit', 'affair_description_limit'];
+let checkboxes = ['use_affairs', 'showMenuTitles'];
 
 selects.forEach(id => {
   let select = document.getElementById(id);
@@ -15,6 +16,13 @@ inputs.forEach(id => {
   let input = document.getElementById(id);
   input.addEventListener('input', () => {
     configurations[input.getAttribute('name')] = input.value;
+  });
+});
+
+checkboxes.forEach(id => {
+  let checkbox = document.getElementById(id);
+  checkbox.addEventListener('change', () => {
+    configurations[checkbox.getAttribute('name')] = checkbox.checked;
   });
 });
 

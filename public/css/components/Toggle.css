@@ -1,0 +1,68 @@
+.toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  width: 100%;
+  padding: 0 32px;
+}
+
+/* Estilos base del toggle */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 22px;
+  margin-right: 12px;
+}
+
+/* Estilo del fondo */
+.toggle .toggle-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #aaa;
+  border-radius: 17px;
+  transition: background-color 0.4s;
+}
+
+/* Estilo del botón */
+.toggle .toggle-button {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s;
+}
+
+/* Estilo del botón cuando está activo */
+.toggle input:checked + .toggle-background {
+  background-color: #b39965;
+}
+
+.toggle input:checked + .toggle-background .toggle-button {
+  transform: translateX(26px);
+}
+
+/* Ocultar el input */
+.toggle input {
+  display: none;
+}
+
+.toggle-container span {
+  color: #fafafa;
+  text-align: left;
+  width: calc(100% - 68px);
+}
+.toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}

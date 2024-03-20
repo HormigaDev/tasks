@@ -1,13 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken');
+const { getEncryptedLocalListDBClass } = require('bbel-simple-db');
 
 let d = __dirname.split('\\');
-let dir = path.join(d[0], d[1], d[2], 'AppData', 'Roaming', '.task');
+let dir = path.join(d[0], d[1], d[2], 'AppData', 'Roaming', process.env.NODE_ENV === 'development'? '.task-dev':'.task');
 if(!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
 }
-
+let listDirRoot = path.join(process.env.APPDATA, process.env.NODE_ENV === 'development'? '.task-dev':'.task', 'data', 'list');
+let EncryptedLocalListDB = getEncryptedLocalListDBClass(listDirRoot, 'Cq7#xY2p!4a8$b', '.tsk');
 
 class DB {
     constructor(filename){
@@ -58,4 +60,7 @@ class DB {
     }
 }
 
-module.exports = DB;
+module.exports = {
+    DB,
+    EncryptedLocalListDB
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%=$t.lang%>">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,13 +18,15 @@
         let pointerX = 0;
         let pointerY = 0;
         let selectDate = false;
+        let configs = JSON.parse(`<%-JSON.stringify(configs)%>`);
     </script>
     <%- include("code/appbar", { title, $t }) %>
     <%- include("code/modal") %>
+    <%- include("components/ModalAffairs") %>
     <div id="encaje">
         <%- include("code/sidecontainer") %>
-        <%- include("code/menu", {active: component, $t}) %>
-        <%- include("components/"+component, { data, $t }) %>
+        <%- include("code/menu", {active: component, $t, configurations}) %>
+        <%- include("pages/"+component, { data, $t }) %>
     </div>
 
     <script src="scripts/scripts.js"></script>

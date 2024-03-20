@@ -168,11 +168,14 @@ if (calendar !== null) {
                         let status = 'done';
                         if(currentDate < new Date(Date.now() - (1000 * 60 * 60 * 24))){
                             status = 'late';
-                        } else if(currentDate > new Date()){
+                        } 
+                        if(currentDate > new Date()){
                             status = 'future';
-                        } else if(currentDate.toDateString() === new Date().toDateString()){
+                        }
+                        if(currentDate.toDateString() === new Date().toDateString()){
                             status = 'today';
-                        } else if(task.done){
+                        }
+                        if(task.status === 'ended'){
                             status = 'done';
                         }
                         bgElement.classList.add('calendar-task-bg', status);

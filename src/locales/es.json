@@ -45,14 +45,26 @@
     "saturday": "Sábado"
   },
   "buttons": {
-    "save": "Guardar"
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "new_affair": "Nuevo Asunto",
+    "search": "Buscar",
+    "archive": "Archivar",
+    "show_archives": "Mostrar Archivados",
+    "hide_archives": "Ocultar Archivados",
+    "filter": "Filtrar",
+    "delete_affair": "Eliminar Asunto",
+    "timeline": "Línea de tiempo",
+    "order_by_az": "Ordenar por A-Z",
+    "order_by_za": "Ordenar por Z-A"
   },
   "menu": {
     "tasks": "Tareas",
     "configurations": "Configuraciones",
     "new_task": "Nueva tarea",
     "search_task": "Buscar tarea",
-    "calendar": "Calendario"
+    "calendar": "Calendario",
+    "affairs": "Asuntos"
   },
   "titles": {
     "configurations": "Configuraciones",
@@ -63,7 +75,11 @@
     "tasks": "Tareas",
     "calendar": "Calendario",
     "error": "Ups! Algo salió mal...",
-    "all_set": "¡Todo listo!"
+    "all_set": "¡Todo listo!",
+    "affairs": "Asuntos",
+    "modules": "Módulos en uso",
+    "affair_example": "Estuve hablando con Juan Pérez sobre el nuevo proyecto.",
+    "other_configs": "Otras configuraciones"
   },
   "messages": {
     "missingFields": "Por favor, complete todos los campos",
@@ -72,7 +88,15 @@
     "dontDeleteTask": "Error al eliminar la tarea, por favor intente más tarde",
     "taskEndedSucess": "¡Tarea finalizada con éxito!",
     "dontEndTask": "Error al finalizar la tarea, por favor intente más tarde",
-    "no_ended": "Cambiar para no finalizada"
+    "no_ended": "Cambiar para no finalizada",
+    "affair_missing_fields": "Por favor, complete todos los campos obligatorios.",
+    "affair_created": "¡Asunto creado con éxito!",
+    "affair_not_created": "Error al crear el asunto, por favor intente más tarde",
+    "affair_not_archived": "Error al archivar el asunto, por favor intente más tarde",
+    "affair_archived": "¡Asunto archivado con éxito!",
+    "affair_not_deleted": "Error al eliminar el asunto, por favor intente más tarde",
+    "affair_deleted": "¡Asunto eliminado con éxito!",
+    "affair_not_selected": "Ningún asunto seleccionado"
   },
   "pages": {
     "tasks": {
@@ -102,7 +126,18 @@
       "configs_updateds": "¡Todo listo!",
       "configs_updated_sucess": "Las configuraciones fueron actualizadas con éxito",
       "no_updated_configs": "Ninguna configuración actualizada, pues ninguna fue modificada",
-      "descriptionLimit": "Límite de caracteres en la descripción"
+      "descriptionLimit": "Límite de caracteres en la descripción de tareas",
+      "use_affairs": "Usar módulo asuntos",
+      "affair_description_limit": "Límite de caracteres en la descripción de asuntos",
+      "showMenuTitles": "Mostrar títulos del menú"
+    },
+    "affairs": {
+      "formtitle": "Título del asunto",
+      "formdescription": "Descripción del asunto",
+      "formperson": "Nombre de la persona",
+      "formphone": "Teléfono de la persona",
+      "description_example": "Estuve hablando con la persona que se sumó  a la lista de socios y marcamos una reunión para la primavera.",
+      "person_example": "Juan Pérez"
     }
   }
 }

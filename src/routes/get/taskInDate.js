@@ -15,7 +15,7 @@ module.exports = (app, { db }) => {
         tasks = tasks.slice(0, 2);
       }
       tasks = tasks.map(t => {
-        t.shortTitle = t.title.toLength(13);
+        t.shortTitle = t.title.toLength(10);
         t.shortDescription = t.description.toLength(50);
         t.isoDate = t.date.split("-").reverse().join("-");
         return t;

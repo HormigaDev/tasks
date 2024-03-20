@@ -1,0 +1,142 @@
+#affairs-container {
+    width: 100%;
+    height: 100vh;
+    background: #2b2b2b;
+    padding: 8px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+#aff-title {
+  width: 100%;
+  text-align: center;
+  color: #928874;
+}
+#affair-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  width: 100%;
+  height: 48px;
+  background: #212121;
+  margin-top: 24px;
+  border-radius: 6px;
+}
+#affairs {
+  /* display: flex; */
+  padding: 16px;
+  /* flex-direction: column; */
+  padding-top: 12px;
+  overflow: auto;
+  padding-bottom: 24px;
+}
+
+.affair {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding: 12px 24px;
+  padding-left: 42px;
+  padding-right: 64px;
+  align-items: center;
+  justify-content: space-between;
+  background: #1f1f1f;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
+}
+.affair:hover {
+  background: #333;
+}
+.affair-title {
+  color: #b39965;
+  font-size: 16px;
+  text-align: left;
+}
+.affair-first-person {
+  color: #fafafa;
+}
+.affair-person-divisor {
+  font-size: 20px;
+}
+.affair-first-phone {
+  color: #fafafa;
+  font-size: 12px;
+  user-select: text;
+  cursor: text;
+}
+.aff-toolbar-btn {
+  padding: 6px 8px;
+  color: #fafafa;
+  background: #b39965;
+  font-size: 16px;
+  margin: 0 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.aff-toolbar-btn:hover {
+  background: #d4b26b;
+}
+.aff-toolbar-btn-delete {
+  padding: 6px 8px;
+  background: #d9534f;
+  color: #fafafa;
+  font-size: 16px;
+  margin: 0 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.aff-toolbar-btn-delete:hover {
+  background: #e6635f;
+}
+.box-option {
+  position: absolute;
+  top: 11px;
+  left: 12px;
+}
+
+#affair-quantity-results {
+  text-align: center;
+}
+#affair-results-container {
+  position: relative;
+}
+
+#affair-prev-page,
+#affair-next-page,
+#affair-page {
+  color: #fafafa;
+  position: absolute;
+  top: 36%;
+  display: flex;
+  left: 32px;
+  z-index: 45;
+  cursor: pointer;
+}
+#affair-prev-page {
+  left: 18px;
+}
+#affair-next-page {
+  left: 46px;
+}
+#affair-page {
+  cursor: default;
+}
+
+.timeline-btn {
+  position: absolute;
+  right: 24px;
+  color: #b39965;
+  top: 36%;
+}
+.checkbox-container {
+  position: absolute;
+  top: 30%;
+}
+
+.aff-toolbar-btn.outlined {
+  outline: 2px solid #fafafa;
+}

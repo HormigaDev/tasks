@@ -19,7 +19,7 @@ module.exports = (app, { db, reducer }) => {
             result.push(task);
         }
     }
-    if(!title) return res.render('template', {title: "search_task", component:'s-search' ,data: {tasks: result}, $t: req.lang})
-    res.render('template', {title: "search_task", component:'s-search' ,data: {tasks: result, word: word ? word : ''}, $t: req.lang});
+    if(!title) return res.dispatchRender('template', {title: "search_task", component:'s-search' ,data: {tasks: result}})
+    res.dispatchRender('template', {title: "search_task", component:'s-search' ,data: {tasks: result, word: word ? word : ''}});
   });
 }

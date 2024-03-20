@@ -1,11 +1,12 @@
 {
   "name": "tasks",
   "productName": "Tasks",
-  "version": "2.1.2",
+  "version": "2.2.0beta",
   "description": "An application for tasks",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
+    "dev": "electron-forge start",
     "pack": "build --dir",
     "dist": "electron-builder",
     "make": "electron-forge make",
@@ -74,6 +75,7 @@
     }
   },
   "dependencies": {
+    "bbel-simple-db": "^1.0.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "easy-auto-launch": "^6.0.2",

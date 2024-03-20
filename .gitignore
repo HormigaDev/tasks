@@ -91,3 +91,5 @@ build/
 dist/
 package-lock.json
 .AddCompLib/
+partials/
+main.c

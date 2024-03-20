@@ -1,0 +1,11 @@
+<link rel="stylesheet" type="text/css" href="css/components/Toggle.css">
+
+<div class="toggle-container">
+  <label class="toggle">
+    <input type="checkbox" <%if(defaultValue){%>checked<%}%> name="<%=toggle_id%>" id="<%=toggle_id%>">
+    <div class="toggle-background">
+      <div class="toggle-button"></div>
+    </div>
+  </label>
+  <span><%=toggle_text%></span>
+</div>

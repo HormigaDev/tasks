@@ -45,14 +45,26 @@
     "saturday": "Saturday"
   },
   "buttons": {
-    "save": "Save"
+    "save": "Save",
+    "cancel": "Cancel",
+    "new_affair": "New Affair",
+    "search": "Search",
+    "archive": "Archive",
+    "show_archives": "Show Archives",
+    "hide_archives": "Hide Archives",
+    "filter": "Filter",
+    "delete_affair": "Delete Affair",
+    "timeline": "Timeline",
+    "order_by_az": "Order by A-Z",
+    "order_by_za": "Order by Z-A"
   },
   "menu": {
     "tasks": "Tasks",
     "configurations": "Configurations",
     "new_task": "New Task",
     "search_task": "Search Task",
-    "calendar": "Calendar"
+    "calendar": "Calendar",
+    "affairs": "Affairs"
   },
   "titles": {
     "configurations": "Configurations",
@@ -63,7 +75,11 @@
     "tasks": "Tasks",
     "calendar": "Calendar",
     "error": "Oops! Something went wrong...",
-    "all_set": "All set!"
+    "all_set": "All set!",
+    "affairs": "Affairs",
+    "modules": "Modules in use",
+    "affair_example": "I am was talking with John Doe about the new project.",
+    "other_configs": "Other configurations"
   },
   "messages": {
     "missingFields": "Please fill in all fields.",
@@ -72,7 +88,15 @@
     "dontDeleteTask": "Error deleting task. Please try again later.",
     "taskEndedSucess": "Task ended successfully!",
     "dontEndTask": "Error ending task. Please try again later.",
-    "no_ended": "Change status to created"
+    "no_ended": "Change status to created",
+    "affair_missing_fields": "Please fill in all fields.",
+    "affair_created": "Affair created successfully!",
+    "affair_not_created": "Error creating affair. Please try again later.",
+    "affair_not_archived": "Error archiving affair. Please try again later.",
+    "affair_archived": "Affair archived successfully!",
+    "affair_not_deleted": "Error deleting affair. Please try again later.",
+    "affair_deleted": "Affair deleted successfully!",
+    "affair_not_selected": "No affairs selected."
   },
   "pages": {
     "tasks": {
@@ -102,7 +126,18 @@
       "configs_updateds": "All set!",
       "configs_updated_sucess": "Configurations updated successfully!",
       "no_updated_configs": "No settings updated, as none were altered.",
-      "descriptionLimit": "Description character limit"
+      "descriptionLimit": "Task description character limit",
+      "use_affairs": "Use affairs module",
+      "affair_description_limit": "Affair description chars limit",
+      "showMenuTitles": "Show menu titles"
+    },
+    "affairs": {
+      "formtitle": "Title of the affair",
+      "formdescription": "Description of the affair",
+      "formperson": "Name of the person",
+      "formphone": "Phone number of person",
+      "description_example": "I`ve been talking to the person who joined the list of partners, and we scheduled a meeting for spring.",
+      "person_example": "John Doe"
     }
   }
 }

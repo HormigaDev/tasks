@@ -1,0 +1,62 @@
+<link rel="stylesheet" type="text/css" href="css/affairs.css">
+
+<div id="affairs-container">
+  <!-- aff quiere decir affairs osea "Asuntos" -->
+  <h1 id="aff-title"><%=$t.titles.affairs%></h1>
+  <div id="affair-toolbar">
+    <div class="aff-toolbar-btn" my-title="<%=$t.buttons.new_affair%>" id="new-affair-btn">
+      <i class="fa fa-plus"></i>
+    </div>
+    <div class="aff-toolbar-btn" my-title="<%=$t.buttons.search%>" id="search-affair">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="aff-toolbar-btn" my-title="<%=$t.buttons.order_by_az%>" id="order_by_az">
+      <i class="fa fa-arrow-up-a-z"></i>
+    </div>
+    <div class="aff-toolbar-btn" my-title="<%=$t.buttons.order_by_za%>" id="order_by_za">
+      <i class="fa fa-arrow-down-a-z"></i>
+    </div>
+    <!-- <div class="aff-toolbar-btn" my-title="<%=$t.buttons.filter%>" id="filter-affair">
+      <i class="fa fa-filter"></i>
+    </div> -->
+    <div class="aff-toolbar-btn" my-title="<%=$t.buttons.show_archives%>" id="show-archives-affair">
+      <i class="fa fa-boxes-packing"></i>
+    </div>
+    <div class="aff-toolbar-btn" my-title="<%=$t.buttons.archive%>" id="archive-affair">
+      <i class="fa fa-box-archive"></i>
+    </div>
+    <div class="aff-toolbar-btn-delete" my-title="<%=$t.buttons.delete_affair%>" id="delete-affair">
+      <i class="fa fa-trash"></i>
+    </div>
+    <div id="affair-results-container">
+      <i id="affair-prev-page" class="fa fa-angle-left"></i>
+      <span id="affair-page">1</span>
+      <i id="affair-next-page" class="fa fa-angle-right"></i>
+      <select name="affair-quantity-results" id="affair-quantity-results">
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+    <label><%=$t.words.show_results%></label>
+  </div>
+  <div id="affairs">
+    <!-- <div class="affair">
+      <label for="checkbox1" class="checkbox-container box-option">
+        <input type="checkbox" id="checkbox1">
+        <span class="checkbox-box"></span>
+        <span class="checkbox-label"></span>
+      </label>
+      <h2 class="affair-title">Affair Example</h2>
+      <div class="affair-person-section">
+        <span class="affair-first-person"><%=$t.pages.affairs.person_example%></span>
+        <span class="affair-person-divisor"> | </span>
+        <span class="affair-first-phone">(49) 99957-8557</span>
+      </div>
+    </div> -->
+  </div>
+  <%- include("../components/searchInputFixed") %>
+</div>
+
+<script src="scripts/affairs.js"></script>

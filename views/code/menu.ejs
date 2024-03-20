@@ -1,27 +1,55 @@
 <div id="menu">
   <a
-    href="<%- active == 's-tasks' ? '#':'/tasks'%>"
-    class="menu-section <%- active == 's-tasks' ? 'active':''%>"
-    id="s-tasks"
-    ><i class="fa fa-file icon"></i> <%=$t.menu.tasks%></a>
-  <a
-    href="<%- active == 's-new' ? '#':'/new'%>"
-    class="menu-section <%- active == 's-new' ? 'active':''%>"
-    id="s-new"
-    ><i class="fa fa-plus icon"></i> <%=$t.menu.new_task%></a>
-  <a 
+    tabindex="-1"
     href="<%- active == 's-calendar' ? '#':'/calendar'%>"
     class="menu-section <%- active == 's-calendar' ? 'active':''%>"
     id="s-calendar"
-    ><i class="fa fa-calendar icon"></i> <%=$t.menu.calendar%></a>
-  <!-- <a
-    href="<%- active == 's-search' ? '#':'/search'%>"
-    class="menu-section <%- active == 's-search' ? 'active':''%>"
-    id="s-search"
-    ><i class="fa fa-search icon"></i> <%=$t.menu.search_task%></a> -->
+    <%if(configs.showMenuTitles){%>
+      my-title="<%=$t.menu.calendar%>"
+    <%}%>
+    ><i class="fa fa-calendar icon"></i>
+  </a>
+  <a
+    tabindex="-1"
+    href="<%- active == 's-tasks' ? '#':'/tasks'%>"
+    class="menu-section <%- active == 's-tasks' ? 'active':''%>"
+    id="s-tasks"
+    <%if(configs.showMenuTitles){%>
+      my-title="<%=$t.menu.tasks%>"
+    <%}%>
+    ><i class="fa fa-file icon"></i>
+  </a>
+  <a
+    tabindex="-1"
+    href="<%- active == 's-new' ? '#':'/new'%>"
+    class="menu-section <%- active == 's-new' ? 'active':''%>"
+    id="s-new"
+    <%if(configs.showMenuTitles){%>
+      my-title="<%=$t.menu.new_task%>"
+    <%}%>
+    ><i class="fa fa-plus icon"></i>
+  </a>
+  <%if(configurations.use_affairs === true){%>
+    <a
+      tabindex="-1"
+      href="<%- active == 's-affairs' ? '#':'/affairs'%>"
+      class="menu-section <%- active == 's-affairs' ? 'active':''%>"
+      id="s-affairs"
+      <%if(configs.showMenuTitles){%>
+        my-title="<%=$t.menu.affairs%>"
+      <%}%>
+      >
+        <i class="fa fa-comments icon"></i>
+    </a> 
+  <%}%>
   <a 
+    tabindex="-1"
     href="<%- active == 's-config' ? '#':'/config'%>"
     class="menu-section <%- active == 's-config' ? 'active':''%>"
     id="s-config"
-    ><i class="fa fa-gear icon"></i> <%=$t.menu.configurations%></a>
+    <%if(configs.showMenuTitles){%>
+      my-title="<%=$t.menu.configurations%>"
+    <%}%>
+    ><i class="fa fa-gear icon"></i>
+  </a>
 </div>
