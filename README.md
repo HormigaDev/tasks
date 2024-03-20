@@ -1,4 +1,4 @@
-# Notas de la versión 2.2.0beta - `Español`
+# Notas de la versión 1.2.0beta - `Español`
 
 ## Adiciones
 * Agregado los métodos `dispatchRender` y `dispatch` en la clase `res` (respuesta de API) para mejorar el envío de informaciones repetitivas
@@ -25,7 +25,7 @@ Los asuntos disponen de:
 * Modificada las posiciones del menú y retirado el espaciado superior.
 ___
 
-# Release Notes 2.2.0beta - `English`
+# Release Notes 1.2.0beta - `English`
 
 ## Additions
 * Added methods `dispatchRender` and `dispatch` to the `res` class (API response) to improve sending repetitive information.
@@ -52,7 +52,7 @@ Subjects feature:
 * Modified menu positions and removed top spacing.
 ___
 
-# Notas da Versão 2.2.0beta - `Português`
+# Notas da Versão 1.2.0beta - `Português`
 
 ## Adições
 * Adicionados métodos `dispatchRender` e `dispatch` na classe `res` (resposta da API) para melhorar o envio de informações repetitivas.
