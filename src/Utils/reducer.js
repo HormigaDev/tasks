@@ -5,3 +5,4 @@ module.exports = (string, length) => {
         return string;
     }
 }
+

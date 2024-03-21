@@ -35,7 +35,6 @@ body{
     grid-template-columns: 54px 1fr;
     background: #333;
     padding-top: 20px;
-    transition: all 0.3s ease;
 }
 #side-container {
     top: 0;
@@ -93,9 +92,10 @@ body{
 #menu{
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
     padding-top: 8px;
     overflow-x: hidden;
+    padding-bottom: 24px;
 }
 .menu-section,.menu-section::before,.btn-submit,#buscar{
     transition: all 0.3s ease;
@@ -549,7 +549,7 @@ h1,p {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 12px;
+    margin-top: 20px;
 }
 .btn {
     padding: 12px;
@@ -699,3 +699,9 @@ input[type="checkbox"]:checked + .checkbox-box::after {
     top: 16px;
     color: #b39965;
   }
+  hr {
+    border: 1px solid #b39965;
+    width: 80%;
+    margin: 12px 0;
+  }
+

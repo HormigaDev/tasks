@@ -45,3 +45,4 @@ module.exports = (app, { reducer, db }) => {
     res.status(200).json( { tasks , pages, total });
   });
 }
+

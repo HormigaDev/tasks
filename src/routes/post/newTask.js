@@ -46,3 +46,4 @@ module.exports = (app, { db, generateID }) => {
     res.json({success: true});
   });
 }
+

@@ -11,3 +11,4 @@ module.exports = (app, { affairs }) => {
     res.dispatch({ messages: 'Asunto eliminado' });
   });
 }
+

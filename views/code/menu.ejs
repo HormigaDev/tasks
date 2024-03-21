@@ -1,55 +1,60 @@
 <div id="menu">
-  <a
-    tabindex="-1"
-    href="<%- active == 's-calendar' ? '#':'/calendar'%>"
-    class="menu-section <%- active == 's-calendar' ? 'active':''%>"
-    id="s-calendar"
-    <%if(configs.showMenuTitles){%>
-      my-title="<%=$t.menu.calendar%>"
-    <%}%>
-    ><i class="fa fa-calendar icon"></i>
-  </a>
-  <a
-    tabindex="-1"
-    href="<%- active == 's-tasks' ? '#':'/tasks'%>"
-    class="menu-section <%- active == 's-tasks' ? 'active':''%>"
-    id="s-tasks"
-    <%if(configs.showMenuTitles){%>
-      my-title="<%=$t.menu.tasks%>"
-    <%}%>
-    ><i class="fa fa-file icon"></i>
-  </a>
-  <a
-    tabindex="-1"
-    href="<%- active == 's-new' ? '#':'/new'%>"
-    class="menu-section <%- active == 's-new' ? 'active':''%>"
-    id="s-new"
-    <%if(configs.showMenuTitles){%>
-      my-title="<%=$t.menu.new_task%>"
-    <%}%>
-    ><i class="fa fa-plus icon"></i>
-  </a>
-  <%if(configurations.use_affairs === true){%>
+  <div id="menu-mains">
     <a
       tabindex="-1"
-      href="<%- active == 's-affairs' ? '#':'/affairs'%>"
-      class="menu-section <%- active == 's-affairs' ? 'active':''%>"
-      id="s-affairs"
+      href="<%- active == 's-new' ? '#':'/new'%>"
+      class="menu-section <%- active == 's-new' ? 'active':''%>"
+      id="s-new"
       <%if(configs.showMenuTitles){%>
-        my-title="<%=$t.menu.affairs%>"
+        my-title="<%=$t.menu.new_task%>"
       <%}%>
-      >
-        <i class="fa fa-comments icon"></i>
-    </a> 
-  <%}%>
-  <a 
-    tabindex="-1"
-    href="<%- active == 's-config' ? '#':'/config'%>"
-    class="menu-section <%- active == 's-config' ? 'active':''%>"
-    id="s-config"
-    <%if(configs.showMenuTitles){%>
-      my-title="<%=$t.menu.configurations%>"
+      ><i class="fa fa-plus icon"></i>
+    </a>
+    <a
+      tabindex="-1"
+      href="<%- active == 's-calendar' ? '#':'/calendar'%>"
+      class="menu-section <%- active == 's-calendar' ? 'active':''%>"
+      id="s-calendar"
+      <%if(configs.showMenuTitles){%>
+        my-title="<%=$t.menu.calendar%>"
+      <%}%>
+      ><i class="fa fa-calendar icon"></i>
+    </a>
+    <a
+      tabindex="-1"
+      href="<%- active == 's-tasks' ? '#':'/tasks'%>"
+      class="menu-section <%- active == 's-tasks' ? 'active':''%>"
+      id="s-tasks"
+      <%if(configs.showMenuTitles){%>
+        my-title="<%=$t.menu.tasks%>"
+      <%}%>
+      ><i class="fa fa-file icon"></i>
+    </a>
+    <%if(configurations.use_affairs === true){%>
+      <a
+        tabindex="-1"
+        href="<%- active == 's-affairs' ? '#':'/affairs'%>"
+        class="menu-section <%- active == 's-affairs' ? 'active':''%>"
+        id="s-affairs"
+        <%if(configs.showMenuTitles){%>
+          my-title="<%=$t.menu.affairs%>"
+        <%}%>
+        >
+          <i class="fa fa-comments icon"></i>
+      </a> 
     <%}%>
-    ><i class="fa fa-gear icon"></i>
-  </a>
+  </div>
+  <div id="menu-seconds">
+    <a 
+      tabindex="-1"
+      href="<%- active == 's-config' ? '#':'/config'%>"
+      class="menu-section <%- active == 's-config' ? 'active':''%>"
+      id="s-config"
+      <%if(configs.showMenuTitles){%>
+        my-title="<%=$t.menu.configurations%>"
+      <%}%>
+      ><i class="fa fa-gear icon"></i>
+    </a>
+  </div>
 </div>
+

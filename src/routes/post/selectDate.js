@@ -8,3 +8,4 @@ module.exports = (app, { db }) => {
     res.json({success: true})
   });
 }
+

@@ -1,7 +1,7 @@
 let configurations = {};
 let saveConfigButton = document.getElementById('save-config');
 
-let selects = ['language-select'];
+let selects = ['language-select','priority-preference'];
 let inputs = ['descriptionLimit', 'affair_description_limit'];
 let checkboxes = ['use_affairs', 'showMenuTitles'];
 
@@ -43,3 +43,4 @@ saveConfigButton?.addEventListener('click', async (e) => {
     showAlert($t.pages.config.configs_updateds, $t.pages.config.no_updated_configs, false);
   }
 })
+

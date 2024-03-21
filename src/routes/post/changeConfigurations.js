@@ -11,3 +11,4 @@ module.exports = (app, { configs: configsDB }) => {
     res.status(200).json({ message: 'Configuraciones actualizadas' });
   });
 }
+

@@ -49,7 +49,6 @@
 .toggle input:checked + .toggle-background .toggle-button {
   transform: translateX(26px);
 }
-
 /* Ocultar el input */
 .toggle input {
   display: none;
@@ -66,3 +65,4 @@
   align-items: center;
   margin: 10px 0;
 }
+

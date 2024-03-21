@@ -3,3 +3,4 @@ module.exports = (app) => {
     return res.json({ $t: req.lang })
   });
 }
+

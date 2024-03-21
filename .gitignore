@@ -93,3 +93,4 @@ package-lock.json
 .AddCompLib/
 partials/
 main.c
+test.js

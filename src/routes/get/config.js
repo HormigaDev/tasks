@@ -5,3 +5,4 @@ module.exports = (app, { db, configs }) => {
     res.dispatchRender('template', {title: "configurations", component:'s-config' , data: {config}});
   });
 }
+

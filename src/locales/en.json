@@ -129,7 +129,8 @@
       "descriptionLimit": "Task description character limit",
       "use_affairs": "Use affairs module",
       "affair_description_limit": "Affair description chars limit",
-      "showMenuTitles": "Show menu titles"
+      "showMenuTitles": "Show menu titles",
+      "task_preferences": "Task preferences"
     },
     "affairs": {
       "formtitle": "Title of the affair",
@@ -141,3 +142,5 @@
     }
   }
 }
+
+

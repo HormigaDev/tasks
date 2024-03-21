@@ -1,7 +1,7 @@
 <%- include("code/head", {title, $t}) %>
 <body>
     <script>
-        let api = 'http://localhost:2735/';
+        let api = 'http://localhost:<%=APP_PORT%>/';
         let reloadModal = false;
         let $t = JSON.parse('<%-JSON.stringify($t)%>');
         let activeComponent = '';

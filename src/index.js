@@ -1,4 +1,4 @@
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'development';
 require('./prototypes'); //importa los prototipos de las clases
 
 const { app, BrowserWindow, globalShortcut } = require('electron');
@@ -7,6 +7,8 @@ const fs = require('fs');
 let d = __dirname.split('\\');
 let dir = path.join(d[0],d[1],d[2]);
 const server = require('./server');
+
+server.set('port', process.env.NODE_ENV === 'development' ? 3000:2735);
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 // eslint-disable-next-line global-require
@@ -25,7 +27,7 @@ const createWindow = () => {
   mainWindow.setMenu(null);
 
   // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:2735/calendar');
+  mainWindow.loadURL('http://localhost:'+server.get('port')+'/calendar');
   
   // agregar el atajo Ctrl + R para recargar la página
   if(process.env.NODE_ENV === 'development'){
@@ -81,7 +83,7 @@ app.on('activate', () => {
 
 
 
-const port = 2735;
+const port = server.get('port');
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 })
@@ -110,3 +112,4 @@ AutoLauncher.isEnabled()
 .catch(function(err){
     // handle error
 });
+

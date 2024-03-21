@@ -45,3 +45,4 @@ endTask.addEventListener('mouseout', () => manageTooltip(endTask, false));
 
 task_back.addEventListener('mouseover', () => manageTooltip(task_back, true));
 task_back.addEventListener('mouseout', () => manageTooltip(task_back, false));
+

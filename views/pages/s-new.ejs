@@ -11,29 +11,21 @@
                 <div class="form-group-section">
                     <label for="f-priority"><%=$t.words.priority%> *</label>
                     <select name="f-priority" id="f-priority">
-                        <%if(task && task?.priority == 'urgent'){%>
-                            <option value="urgent" selected><%=$t.words.urgent%></option>
-                        <%} else{%>
-                            <option value="urgent"><%=$t.words.urgent%></option>    
-                        <%}%>
+                        <option value="urgent" 
+                        <%if(task && task?.priority == 'urgent' || configs.priority_preference === 'urgent'){%>selected<%}%>
+                        ><%=$t.words.urgent%></option>
 
-                        <%if(task && task?.priority == 'high'){%>
-                            <option value="high" selected><%=$t.words.high%></option>
-                        <%} else{%>
-                            <option value="high"><%=$t.words.high%></option>    
-                        <%}%>
+                        <option value="high" 
+                        <%if(task && task?.priority == 'high' || configs.priority_preference === 'high'){%>selected<%}%>
+                        ><%=$t.words.high%></option>
 
-                        <%if(task && task?.priority == 'normal'){%>
-                            <option value="normal" selected><%=$t.words.normal%></option>
-                        <%} else{%>
-                            <option value="normal"><%=$t.words.normal%></option>    
-                        <%}%>
+                        <option value="normal" 
+                        <%if(task && task?.priority == 'normal' || configs.priority_preference === 'normal'){%>selected<%}%>
+                        ><%=$t.words.normal%></option>
 
-                        <%if(task && task?.priority == 'low'){%>
-                            <option value="low" selected><%=$t.words.low%></option>
-                        <%} else{%>
-                            <option value="low"><%=$t.words.low%></option>    
-                        <%}%>
+                        <option value="low" 
+                        <%if(task && task?.priority == 'low' || configs.priority_preference === 'low'){%>selected<%}%>
+                        ><%=$t.words.low%></option>
                     </select>
                 </div>
             </div>

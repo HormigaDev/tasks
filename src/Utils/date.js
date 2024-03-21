@@ -8,3 +8,4 @@ module.exports = () => {
     date = day + '-' + month + '-' + year;
     return date;
 }
+

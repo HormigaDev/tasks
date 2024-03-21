@@ -23,3 +23,4 @@ module.exports = (app, { db, reducer }) => {
     res.dispatchRender('template', {title: "search_task", component:'s-search' ,data: {tasks: result, word: word ? word : ''}});
   });
 }
+

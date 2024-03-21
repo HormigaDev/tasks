@@ -13,3 +13,4 @@ server.set('views', path.join(__dirname, '../views'));
 require('./router')(server);
 
 module.exports = server;
+

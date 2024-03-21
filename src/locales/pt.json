@@ -129,7 +129,8 @@
       "descriptionLimit": "Limite de caracteres para descrição de tarefas",
       "use_affairs": "Utilizar módulo de assuntos",
       "affair_description_limit": "Limite de caracteres na descrição dos assuntos",
-      "showMenuTitles": "Mostrar títulos do menu"
+      "showMenuTitles": "Mostrar títulos do menu",
+      "task_preferences": "Preferências de tarefas"
     },
     "affairs": {
       "formtitle": "Título do assunto",
@@ -141,3 +142,5 @@
     }
   }
 }
+
+

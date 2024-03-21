@@ -45,3 +45,4 @@ module.exports = (app, { affairs }) => {
     res.dispatch({ affairs: affairList, prev, next, page, pages, totalResults });
   });
 }
+

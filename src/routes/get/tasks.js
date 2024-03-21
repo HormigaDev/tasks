@@ -15,3 +15,4 @@ module.exports = (app, { reducer, db, configs }) => {
     res.dispatchRender('template', {title: "tasks", component:'s-tasks' ,data: {tasks: tasks }});
   });
 }
+

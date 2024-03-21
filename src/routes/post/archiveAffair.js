@@ -12,3 +12,4 @@ module.exports = (app, { affairs }) => {
     return res.dispatch({ message: 'Asuntos archivados correctamente' });
   });
 }
+

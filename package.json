@@ -1,7 +1,7 @@
 {
   "name": "tasks",
   "productName": "Tasks",
-  "version": "2.2.0beta",
+  "version": "1.2.0",
   "description": "An application for tasks",
   "main": "src/index.js",
   "scripts": {

@@ -30,6 +30,7 @@ module.exports = (app) => {
         res.dispatch = async (json, status=200) => {
             json.$t = req.lang;
             json.configs = req.configs;
+            json.APP_PORT = app.get('port');
 
             return res.status(status).json(json);
         }
@@ -37,6 +38,7 @@ module.exports = (app) => {
             data.$t = req.lang;
             data.configs = req.configs;
             data.configurations = req.configs;
+            data.APP_PORT = app.get('port');
 
             return res.status(status).render(template, data);
         }
@@ -56,3 +58,4 @@ module.exports = (app) => {
         }
     });
 }
+

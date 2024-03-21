@@ -71,3 +71,4 @@ String.prototype.toDateInJSON = function(format='yyyy-mm-dd hh:ii:ss'){
         seconds: parseInt(seconds)
     }
 }
+

@@ -2,61 +2,61 @@
 function manageTooltip(element, showTooltip) {
     // Check if the tooltip should be shown or removed
     if (showTooltip) {
-      // Get the position of the element on the screen
-      const rect = element.getBoundingClientRect();
-      const top = rect.top + window.scrollY;
-      const left = rect.left + window.scrollX;
-  
-      // Get the value of the 'my-title' attribute
-      const myTitle = element.getAttribute('my-title');
-  
-      // Create a div element to display the tooltip
-      const tooltip = document.createElement('div');
-      tooltip.className = 'tooltip';
-      tooltip.textContent = myTitle;
-      tooltip.style.position = 'absolute';
-      tooltip.style.border = '1px solid #ccc';
-      tooltip.style.padding = '5px';
-      tooltip.style.backgroundColor = '#20202090';
-      tooltip.style.zIndex = '9999';
-      tooltip.style.color = '#fafafa';
-      tooltip.style.fontSize = '12px';
-      tooltip.style.maxWidth = '256px';
-      tooltip.style.wordBreak = 'break-word';
-  
-      // Calculate preferred positions
-      const preferredTop = top - tooltip.offsetHeight - 10;
-      const preferredBottom = top + rect.height + 10;
-      const preferredLeft = left - tooltip.offsetWidth - 10;
-      const preferredRight = left + rect.width + 10;
-  
-      // Check the preferred position and adjust if necessary
-      if (preferredBottom + tooltip.offsetHeight <= window.innerHeight) {
-        tooltip.style.top = preferredBottom -5 + 'px';
-        tooltip.style.left = preferredRight - 20 + 'px';
-      } else if (preferredLeft >= 0) {
-        tooltip.style.top = top + 'px';
-        tooltip.style.left = preferredLeft + 'px';
-      } else if (preferredRight + tooltip.offsetWidth <= window.innerWidth) {
-        tooltip.style.top = top + 'px';
-        tooltip.style.left = preferredRight + 'px';
-      } else if (preferredTop >= 0) {
-        tooltip.style.top = preferredTop + 'px';
-        tooltip.style.left = left + 'px';
-      } else {
-        // If it cannot be shown in any preferred positions, display it in the original position
-        tooltip.style.top = top + 'px';
-        tooltip.style.left = left + 'px';
-      }
-  
-      // Add the tooltip to the body of the document
-      document.body.appendChild(tooltip);
+        // Get the position of the element on the screen
+        const rect = element.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const left = rect.left + window.scrollX;
+
+        // Get the value of the 'my-title' attribute
+        const myTitle = element.getAttribute('my-title');
+
+        // Create a div element to display the tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.textContent = myTitle;
+        tooltip.style.position = 'absolute';
+        tooltip.style.border = '1px solid #ccc';
+        tooltip.style.padding = '5px';
+        tooltip.style.backgroundColor = '#20202090';
+        tooltip.style.zIndex = '9999';
+        tooltip.style.color = '#fafafa';
+        tooltip.style.fontSize = '12px';
+        tooltip.style.maxWidth = '256px';
+        tooltip.style.wordBreak = 'break-word';
+
+        // Calculate preferred positions
+        const preferredTop = top - tooltip.offsetHeight - 10;
+        const preferredBottom = top + rect.height + 10;
+        const preferredLeft = left - tooltip.offsetWidth - 10;
+        const preferredRight = left + rect.width + 10;
+
+        // Check if the pointer is within the last 64px to the right
+        const isNearRightEdge = window.innerWidth - event.clientX < 200;
+
+        // Check if the pointer is within the last 64px to the bottom
+        const isNearBottomEdge = window.innerHeight - event.clientY < 100;
+
+        // Determine preferred position based on pointer position
+        if (isNearRightEdge) {
+            tooltip.style.left = preferredLeft + 'px';
+        } else {
+            tooltip.style.left = preferredRight - 20 + 'px';
+        }
+
+        if (isNearBottomEdge) {
+            tooltip.style.top = preferredTop - 5 + 'px';
+        } else {
+            tooltip.style.top = preferredBottom + 'px';
+        }
+
+        // Add the tooltip to the body of the document
+        document.body.appendChild(tooltip);
     } else {
-      // Remove the tooltip if it exists
-      const existingTooltip = document.querySelector('.tooltip');
-      if (existingTooltip) {
-        existingTooltip.remove();
-      }
+        // Remove the tooltip if it exists
+        const existingTooltip = document.querySelector('.tooltip');
+        if (existingTooltip) {
+            existingTooltip.remove();
+        }
     }
 }
 
@@ -316,3 +316,4 @@ menuSections.forEach(section => {
         manageTooltip(section, false);
     });
 });
+

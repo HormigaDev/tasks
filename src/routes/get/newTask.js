@@ -19,3 +19,4 @@ module.exports = (app, { db }) => {
     res.dispatchRender('template', {title: editing ? "edit_task" : "new_task", component:'s-new' ,task, selectDate, data: {}, editing});
   });
 }
+

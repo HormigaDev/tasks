@@ -344,3 +344,4 @@ affairQuantityResults.addEventListener('change', () => {
 });
 
 getAffairs();
+
