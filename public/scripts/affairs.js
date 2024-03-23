@@ -1,3 +1,5 @@
+import { showAffairData } from './functions/showAffairData.js';
+
 let modalForm = document.getElementById('modal-affairs');
 let newAffairButton = document.getElementById('new-affair-btn');
 let openModalAffair = false;
@@ -31,7 +33,7 @@ newAffairButton.addEventListener('click', function(e) {
   if(!openModalAffair){
     modalForm.style.top = '0';
   } else {
-    modalForm.style.top = '-100vh';
+    modalForm.style.top = '-2000px';
   }
 });
 cancelAffairButton.addEventListener('click', function(e) {
@@ -65,11 +67,12 @@ formAffairPhone.addEventListener('input', function (e) {
 
 saveAffairButton.addEventListener('click', async function(e) {
   e.preventDefault();
+  let _id = document.getElementById('affair-_id').value;
   if(
-    affair.title === null ||
-    affair.description === null ||
-    affair.person === null ||
-    affair.phone === null
+    formAffairTitle.value === '' ||
+    formAffairDescription.value === '' ||
+    formAffairPerson.value === '' ||
+    formAffairPhone.value === ''
   ) {
     return showAlert($t.titles.error, $t.messages.affair_missing_fields);
   }
@@ -79,12 +82,13 @@ saveAffairButton.addEventListener('click', async function(e) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      title: affair.title,
-      description: affair.description,
+      title: formAffairTitle.value,
+      description: formAffairDescription.value,
       person: {
         name: affair.person,
         phone: affair.phone
-      }
+      },
+      _id
     })
   });
   if(res.status === 200){
@@ -95,6 +99,9 @@ saveAffairButton.addEventListener('click', async function(e) {
     formAffairPerson.value = '';
     formAffairPhone.value = '';
     getAffairs();
+    let res = await fetch('/get-affair?id='+_id);
+    let data = await res.json();
+    showAffairData(data.affair);
   } else {
     showAlert($t.titles.error, $t.messages.affair_not_created);
   }
@@ -119,22 +126,36 @@ saveAffairButton.addEventListener('click', async function(e) {
     });
   }
 });
+let affairCheckboxSelected = false;
 
 let affairHTMLTemplate = (affair) => {
   let _affair = document.createElement('div');
-  if(affair.archived === true || affair.archived === 'true'){
-    _affair.style.outline = '1px solid #fab434';
-  }
+  
   _affair.classList.add('affair');
+
+  _affair.onclick = function(){
+    if(affairCheckboxSelected) return;
+    localStorage.setItem('opened_affar', 'true');
+    showAffairData(affair);
+  }
+  // let _affair_container = document.getElementById('affair-content');
   let checkboxLabel = document.createElement('label');
   checkboxLabel.setAttribute('for', affair.id);
   checkboxLabel.classList.add('checkbox-container', 'box-option');
   let checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.classList.add('affair-input-chekbox');
-  checkbox.onchange = function(){
+  checkbox.onchange = function(e){
+    e.preventDefault();
     selectAffair(affair.id);
   }
+  checkboxLabel.onmouseover = () => {
+    affairCheckboxSelected = true;
+  }
+  checkboxLabel.onmouseout = () => {
+    affairCheckboxSelected = false;
+  }
+  checkbox.setAttribute('readonly', 'true');
   checkbox.setAttribute('name', affair.id);
   checkbox.setAttribute('id', affair.id);
   let checkboxSpan = document.createElement('span');
@@ -159,6 +180,13 @@ let affairHTMLTemplate = (affair) => {
   toolbarBtn.setAttribute('id', 'timeline-affair-btn');
   toolbarBtn.classList.add('timeline-btn');
   let icon = document.createElement('i');
+  if(affair.archived === true || affair.archived === 'true'){
+    // _affair.style.outline = '1px solid #fab434';
+    let iconArchive = document.createElement('i');
+    iconArchive.classList.add('fa', 'fa-archive');
+    iconArchive.style.margin = '0 10px';
+    toolbarBtn.appendChild(iconArchive);
+  }
   icon.classList.add('fa', 'fa-timeline');
   icon.setAttribute('my-title', $t.buttons.timeline);
   toolbarBtn.appendChild(icon);
@@ -238,13 +266,17 @@ searchAffairBtn.addEventListener('click', e => {
   e.preventDefault();
   let searchInputContainer = document.getElementById('search-input-fixed-container');
   if(!searchAffairBtnOpen){
-    searchInputContainer.style.bottom = '24px';
+    searchInputContainer.style.display = 'block';
     searchAffairBtnOpen = true;
-    searchAffairBtn.classList.add('outlined');
   } else {
-    searchInputContainer.style.bottom = '-70px';
-    searchAffairBtnOpen = false;
-    searchAffairBtn.classList.remove('outlined');
+    searchInputContainer.classList.remove('animate__backInUp');
+    searchInputContainer.classList.add('animate__backOutDown');
+    setTimeout(() => {
+      searchInputContainer.style.display = 'none';
+      searchAffairBtnOpen = false;
+      searchInputContainer.classList.remove('animate__backOutDown');
+      searchInputContainer.classList.add('animate__backInUp');
+    }, 600);
   }
 });
 
@@ -297,7 +329,9 @@ deleteAffairBtn.addEventListener('click', async () => {
   });
   if(res.status === 200){
     showAlert($t.titles.all_set, $t.messages.affair_deleted);
-    return getAffairs();
+    getAffairs();
+    selectedAffairs = [];
+    return;
   } else {
     return showAlert($t.titles.error, $t.messages.affair_not_deleted);
   }
@@ -314,7 +348,9 @@ archiveAffairBtn.addEventListener('click', async () => {
   })
   if(res.status === 200){
     showAlert($t.titles.all_set, $t.messages.affair_archived);
-    return getAffairs();
+    getAffairs();
+    selectedAffairs = [];
+    return;
   } else {
     return showAlert($t.titles.error, $t.messages.affair_not_archived);
   }
@@ -341,6 +377,20 @@ let affairQuantityResults = document.getElementById('affair-quantity-results');
 affairQuantityResults.addEventListener('change', () => {
   getAffairsData.results = Number(affairQuantityResults.value);
   getAffairs();
+});
+
+let affairContentClose = document.getElementById('affair-content-close');
+affairContentClose.addEventListener('click', () => {
+  localStorage.setItem('opened_affar', 'false');
+  let affairContent = document.getElementById('affair-content');
+  affairContent.classList.remove('animate__fadeIn');
+  affairContent.classList.add('animate__fadeOut');
+  document.getElementById('affair-_id').value = '';
+  setTimeout(() => {
+    affairContent.style.display = 'none';
+    affairContent.classList.remove('animate__fadeOut');
+    affairContent.classList.add('animate__fadeIn');
+  }, 300);
 });
 
 getAffairs();

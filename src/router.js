@@ -16,7 +16,9 @@ const fs = require('fs');
 module.exports = (app) => {
 
     // Middleware para configurar el lenguaje
+    let APP_VERSION = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'version.json')))
     async function setLanguage(req, res, next){
+
         req.configs = {}
         let configurations = await configs.get('configurations');
         if(configurations){
@@ -39,6 +41,7 @@ module.exports = (app) => {
             data.configs = req.configs;
             data.configurations = req.configs;
             data.APP_PORT = app.get('port');
+            data.APP_VERSION = APP_VERSION;
 
             return res.status(status).render(template, data);
         }

@@ -1,0 +1,6 @@
+<%if(APP_VERSION.stage !== 'stable'){%>
+  <div 
+    id="tag-version"
+    style="border: 2px solid <%=APP_VERSION.stageColors[APP_VERSION.stage]%>; color: <%=APP_VERSION.stageColors[APP_VERSION.stage]%>"
+  ><%=APP_VERSION.stage.toUpperCase()%></div>
+<%}%>

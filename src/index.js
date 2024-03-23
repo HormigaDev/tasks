@@ -1,7 +1,8 @@
 process.env.NODE_ENV = 'development';
 require('./prototypes'); //importa los prototipos de las clases
 
-const { app, BrowserWindow, globalShortcut } = require('electron');
+const { app, BrowserWindow, globalShortcut, Notification} = require('electron');
+const Badge = require('electron-windows-badge');
 const path = require('path');
 const fs = require('fs');
 let d = __dirname.split('\\');

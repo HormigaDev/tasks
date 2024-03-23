@@ -1,10 +1,10 @@
 module.exports = (app, { generateID, affairs }) => {
   app.post('/new-affair', async (req, res) => {
-    let id = generateID(7);
-    while(await affairs.findOne({ id })) id = generateID(7);
     let { title, description, person, _id } = req.body;
     if(!title || !description || !person) return res.status(400).json({error: 'Campos obligatorios vacíos'});
-    if(!_id){
+    if(_id === '' || !_id){
+      let id = generateID(7);
+      while(await affairs.findOne({ id })) id = generateID(7);
       let newAffair = {
         id,
         title,
@@ -28,7 +28,7 @@ module.exports = (app, { generateID, affairs }) => {
         description,
         person
       });
-      await affairs.updateOne({ id: _id }, { timeline });
+      await affairs.updateOne({ id: _id }, { title, timeline });
       res.status(200).json({ message: 'Affair updated' });
     }
   });
