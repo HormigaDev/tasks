@@ -1,1 +1,1 @@
-update avatars set file_name = ?, file_type = ?, file_data = ?, last_update = datetime('now') where user_id = ?;
+update avatars set file_name = ?, file_type = ?, file_data = ? where user_id = ?;

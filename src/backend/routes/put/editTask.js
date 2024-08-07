@@ -14,6 +14,7 @@ const taskHasCategory = require('./functions/editTask/taskHasCategory');
 const insertCategory = require('./functions/editTask/insertCategory');
 const checkProp = require('./functions/editTask/checkProp');
 const registerLog = require('../../helpers/registerLog');
+const removeAllCategories = require('./functions/editTask/removeAllCategories');
 
 const route = new Route('/edit-task', async (req, res) => {
   try {
@@ -23,9 +24,9 @@ const route = new Route('/edit-task', async (req, res) => {
       title: r.title,
       description: r.description,
       status: r.status,
-      fixed: Number(r.fixed),
       priority_id: Number(r.priority_id),
       run_date: r.run_date,
+      fixed: !r.fixed ? 0 : 1
     };
     let categories = r.categories;
     if(categories){
@@ -41,7 +42,6 @@ const route = new Route('/edit-task', async (req, res) => {
           title: [],
           description: [],
           status: [],
-          fixed: [],
           priority_id: [],
           run_date: [],
           categories: [
@@ -63,6 +63,7 @@ const route = new Route('/edit-task', async (req, res) => {
           } 
         }
         await updateTask('last_update', new Date().toFormat(), taskId);
+        await removeAllCategories(taskId);
         for(const category of categories){
           const hasCategory = await taskHasCategory(taskId, category);
           if(hasCategory) {
@@ -77,7 +78,9 @@ const route = new Route('/edit-task', async (req, res) => {
         for(const key of Object.keys(taskDetails).slice(1, 7)){
           if(taskDetails[key].length === 0) delete taskDetails[key];
         }
-        await registerLog(req.user_id, 'update', 'tasks', taskDetails.toSnakeCase());
+        if(!r.fixed){
+          await registerLog(req.user_id, 'update', 'tasks', taskDetails.toSnakeCase());
+        }
         await db.commit();
         res.status(200).json({ message: '¡Tarea actualizada correctamente!' });
       } catch(err){

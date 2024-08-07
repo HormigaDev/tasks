@@ -22,19 +22,20 @@ async function main() {
     createAppFolder();
   } catch(err){
     console.log(`Error al crear la carpeta raíz de la aplicación: ${err}`);
-    return;
+    // return;
   }
   try {
     createDatabase();
   } catch(err){
     console.log(`Error al crear la base de datos: ${err}`);
-    return;
+    // return;
   }
   router(app);
 
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
+
   return app;
 }
 

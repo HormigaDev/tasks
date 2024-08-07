@@ -49,7 +49,9 @@ const route = new Route('/edit-affair', async (req, res) => {
           for(const key of Object.keys(affairDetails).slice(1)){
             if(affairDetails[key].length === 0) delete affairDetails[key];
           }
-          await registerLog(req.user_id, 'update', 'affairs', affairDetails.toSnakeCase());
+          if (r.status !== 'created' && r.status !== 'archived'){
+            await registerLog(req.user_id, 'update', 'affairs', affairDetails.toSnakeCase());
+          }
           await db.commit();
           res.status(200).json({ message: '¡Asunto actualizado correctamente!' });
         } catch(err){

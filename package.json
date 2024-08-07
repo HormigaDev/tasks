@@ -44,7 +44,7 @@
     },
     "win": {
       "target": "NSIS",
-      "icon": "build/icon.ico"
+      "icon": "logos/bbel_logo.ico"
     }
   },
   "config": {

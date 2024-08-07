@@ -9,7 +9,7 @@ const fs = require('fs');
 let d = __dirname.split('\\');
 let dir = path.join(d[0],d[1],d[2]);
 const executePlugins = require('./plugins.loader');
-const executeNotificationsService = require('./notifications_service');
+// const executeNotificationsService = require('./notifications_service');
 
 let tray;
 let trayMenu;
@@ -26,13 +26,13 @@ if (require('electron-squirrel-startup')) {
 app.isQuiting = false;
 executePlugins(app);
 
-executeNotificationsService();
+// executeNotificationsService();
 
 const createWindow = async () => {
 
   const server = await require('./backend/index')();
 
-  // server.set('port', process.env.NODE_ENV === 'development' ? 3000:2735);
+  server.set('port', process.env.NODE_ENV === 'development' ? 3000:2735);
   const frontend = require('./spa/index');
   frontend();
   // Create the browser window.
